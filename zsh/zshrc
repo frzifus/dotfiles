@@ -1,0 +1,41 @@
+# zsh plugins
+ZPLUG_HOME=${HOME}/.zplug
+source $ZPLUG_HOME/init.zsh
+#zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "tobjaw/fd6ff79d37678e5b66c7455c75b710f7", from:gist, as:theme
+#zplug "plugins/colored-man-pages", from:oh-my-zsh
+zplug "plugins/history", from:oh-my-zsh
+zplug "plugins/docker", from:oh-my-zsh
+zplug "chrissicool/zsh-256color"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-autosuggestions"
+zplug load
+
+bindkey -e
+# https://linux.die.net/man/1/zshzle
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey "^a" beginning-of-line
+bindkey "^e" end-of-line
+bindkey "^R" history-incremental-pattern-search-backward
+alias eo=emacsclient -c -n $@
+alias en=emacsclient -n $@
+alias ls="ls --color=auto"
+alias ll="ls -l"
+alias open=xdg-open
+
+## case-insensitive (uppercase from lowercase) completion
+# zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+## case-insensitive (all) completion
+#zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+## case-insensitive,partial-word and then substring completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+
+# alias monitor=xrandr --output HDMI2 --auto; sleep 2; xrandr --output eDP1 --off
+# alias laptop=xrandr --output eDP1 --auto; sleep 2; xrandr --output HDMI2 --off
+
+#zplug "plugins/docker-compose", from:oh-my-zsh
+#zplug "plugins/docker", from:oh-my-zsh

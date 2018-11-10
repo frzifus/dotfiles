@@ -1,0 +1,101 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 5
+}
+
+
+#order += "volume pulse"
+order += "battery 0"
+order += "battery 1"
+order += "wireless wlan0"
+order += "cpu_temperature 0"
+order += "cpu_usage"
+order += "run_watch DHCP"
+order += "run_watch VPN"
+order += "disk /"
+order += "disk /home"
+order += "ipv6"
+order += "ethernet eth0"
+order += "load"
+order += "volume master"
+order += "tztime local"
+
+wireless wlan0 {
+        format_up = "W: (%quality at %essid) %ip"
+        format_down = "W: down"
+}
+
+ethernet eth0 {
+        # if you use %speed, i3status requires root privileges
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
+
+battery 0 {
+        format = "%status %percentage %remaining"
+}
+
+battery 1 {
+        format = "%status %percentage %remaining"
+}
+
+run_watch DHCP {
+        pidfile = "/var/run/dhclient*.pid"
+}
+
+run_watch VPN {
+        pidfile = "/var/run/vpnc/pid"
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+}
+
+load {
+        format = "Load: %1min"
+}
+
+disk "/" {
+        format = "root: %avail"
+}
+
+disk "/home" {
+        format = "home: %avail"
+}
+
+cpu_usage {
+        format = "CPU: %usage GHz"
+}
+
+# cpu_frequency {
+#         format = "CPU: %ip GHz"
+#         path   = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq" 
+# }
+
+cpu_temperature 0 {
+        format = "T: %degrees °C"
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
+}
+
+volume master {
+        format = "♪: %volume"
+        format_muted = "♪: muted (%volume)"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+#volume pulse {
+#        format = "♪: %volume"
+#        format_muted = "♪: muted (%volume)"
+#        device = "pulse"
+#}
+
