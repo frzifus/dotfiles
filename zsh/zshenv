@@ -1,11 +1,13 @@
 export PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}:${HOME}/.zplug/bin:${PATH}"
 
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+
 export GOROOT=/usr/local/go/
 export GOPATH=${HOME}/git/golang_workspace
 export PATH="$PATH:$GOROOT/bin"
 export PATH="$PATH:$GOPATH/bin"
 
-export GRIDX="$GOPATH/src/github.com/grid-x"
+export GRIDX="${HOME}/git/work/grid-x"
 
 export LC_ALL=de_DE.UTF-8
 export LANG=de_de.UTF-8
