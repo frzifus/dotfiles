@@ -31,7 +31,6 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -41,7 +40,7 @@ values."
      ;; haskell
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
-                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-enable-snippets-in-popup nil
                       auto-completion-enable-sort-by-usage t)
      better-defaults
      emacs-lisp
@@ -72,6 +71,7 @@ values."
          run-go-install-on-save t
          gofmt-command "goimports"
          go-tab-width 4
+         go-backend 'lsp
          )
      ;; .h use c-mode by default
      ;; Enable clang support by default
