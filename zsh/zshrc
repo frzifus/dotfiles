@@ -22,8 +22,8 @@ bindkey "^e" end-of-line
 bindkey "^R" history-incremental-pattern-search-backward
 alias eo=emacsclient -c -n $@
 alias en=emacsclient -n $@
-alias ls="ls --color=auto"
-alias ll="ls -l"
+alias ls="exa"
+alias ll="exa -abghHlS"
 alias open=xdg-open
 
 ## case-insensitive (uppercase from lowercase) completion
