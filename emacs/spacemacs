@@ -64,6 +64,13 @@ values."
      git
      protobuf
      github
+     multiple-cursors
+     (multiple-cursors :variables
+         multiple-cursors-backend 'mc
+       )
+     (terraform :variables
+         terraform-auto-format-on-save t
+       )
      (go : variables
          go-use-gometalinter nil
          godoc-at-point-function 'godoc-gogetdoc
