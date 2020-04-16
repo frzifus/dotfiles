@@ -35,8 +35,8 @@ client.urgent               #cb4b16        #dc322f         #fdf6e3
 
 # set terminal colours right
 exec xrdb .Xresources
-#exec --no-startup-id compton -cCGfF -b #-i 0.75
-#exec --no-startup-id comption --config ~/.i3/compton.conf
+exec --no-startup-id picom --config picom.conf
+
 for_window [class="^.*"] border pixel 2
 for_window [class="Orage"] floating enable
 for_window [class="Conky"] floating enable
@@ -53,10 +53,10 @@ for_window [title="___"] floating enable
 for_window [title="galculator"] floating enable
 
 #gaps
-gaps inner 4
-gaps outer 2
-smart_gaps on
-#smart_borders on
+gaps inner 6
+gaps outer 4
+smart_gaps off
+smart_borders on
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -232,6 +232,7 @@ bar {
     status_command i3blocks -c ~/.i3/i3blocks.conf
     position top
     tray_output eDP1
+    tray_output DP2
     tray_output HDMI1
     tray_output HDMI2
     height 18
@@ -255,4 +256,3 @@ exec --no-startup-id feh --bg-fill ~/.i3/wp.png
 exec synclient TouchpadOff=1
 exec xset r rate 200 25
 exec --no-startup-id redshift-gtk
-
