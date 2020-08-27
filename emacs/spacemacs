@@ -252,7 +252,7 @@ values."
    dotspacemacs-display-default-layout nil
    ;; If non nil then the last auto saved layouts are resume automatically upon
    ;; start. (default nil)
-   dotspacemacs-auto-resume-layouts t
+   dotspacemacs-auto-resume-layouts nil
    ;; Size (in MB) above which spacemacs will prompt to open the large file
    ;; literally to avoid performance issues. Opening a file literally means that
    ;; no major mode or minor modes are active. (default is 1)
@@ -415,6 +415,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (global-set-key (kbd "M-j") 'forward-paragraph)
   (global-set-key (kbd "M-k") 'backward-paragraph)
 
+
+  (defun save-all () (interactive) (save-some-buffers t))
+  (global-set-key (kbd "C-S") 'save-all)
+
   ;; Normalmode
   (global-set-key (kbd "C-i") 'evil-escape)
 
@@ -430,7 +434,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
             (lambda()
               (global-set-key (kbd "S-SPC") 'company-complete)))
 
-  (add-hook 'prog-mode-hook 'turn-on-fci-mode)
+  (add-hook 'prog-mode-hook 'display-fill-column-indicator-mode)
 
   )  ;; end dotspacemacs/user-config
 
